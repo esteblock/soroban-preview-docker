@@ -25,7 +25,7 @@ docker run --rm -ti \
 ```
 currentDir=$(pwd)
 docker run --volume  ${currentDir}:/workspace \
-           --name soroban-preview \
+           --name soroban-preview-7 \
            --interactive \
            --tty \
            -p 8001:8000 \
@@ -36,7 +36,7 @@ docker run --volume  ${currentDir}:/workspace \
 ```
 4. Execute your script inside the soroban-preview container. Here, instead of using http://localhost:8000, to call the quickstart container you just need to call `stellar:8000`, becase "stellar" is the name of the quickstart container:
 ```
-docker exec soroban-preview ./my_soroban_cli_script.sh MY_ARGS
+docker exec soroban-preview-7 ./my_soroban_cli_script.sh MY_ARGS
 ```
 
 ## Example:
@@ -44,7 +44,7 @@ In this example, we will wrap an asset using soroban-cli v0.6.0 (Preview 7)
 ```
 cd example
 ./quickstart.sh standalone # this will run both quickstart and preview containers
-docker exec soroban-preview ./initialize.sh standalone #wrap
+docker exec soroban-preview-7 ./initialize.sh standalone #wrap
 ```
 
 

@@ -22,7 +22,7 @@ esac
 # cd docker
 # bash build.sh
 IMAGE_NAME="esteblock/soroban-preview:7"
-CONTAINER_NAME="soroban-preview"
+CONTAINER_NAME="soroban-preview-7"
 echo "Searching for a previous soroban-preview docker container"
 containerID=$(docker ps --filter="name=$CONTAINER_NAME" --all --quiet)
 if [[ ${containerID} ]]; then
@@ -35,7 +35,7 @@ fi
 
 currentDir=$(pwd)
 docker run --volume  ${currentDir}:/workspace \
-           --name soroban-preview \
+           --name $CONTAINER_NAME \
            --interactive \
            --tty \
            -p 8001:8000 \
