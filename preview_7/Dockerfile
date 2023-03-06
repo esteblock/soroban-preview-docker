@@ -15,6 +15,11 @@ RUN rustup target add wasm32-unknown-unknown
 
 RUN apt install -y build-essential
 RUN cargo install --locked --version 0.6.0 soroban-cli
+
+RUN apt install -y jq
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+    && . ~/.bashrc \
+    && nvm install 17 && nvm use 17
 # WORKDIR /
 RUN mkdir /workspace
 WORKDIR /workspace
