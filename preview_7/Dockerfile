@@ -19,7 +19,7 @@ RUN cargo install --locked --version 0.6.0 soroban-cli
 RUN apt install -y jq
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && . ~/.bashrc \
-    && nvm install 17 && nvm use 17
+    && nvm install 17.9.1 && nvm use 17.9.1
 
 ENV NODE_VERSION=17.9.1
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
