@@ -24,6 +24,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | b
 ENV NODE_VERSION=17.9.1
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
+RUN apt install -y git
+
 # WORKDIR /
 RUN mkdir /workspace
 WORKDIR /workspace
