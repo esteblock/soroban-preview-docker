@@ -1,6 +1,8 @@
 # soroban-preview-docker
 Docker images to support Soroban Preview's setup.
 
+See published images in DockerHub: https://hub.docker.com/r/esteblock/soroban-preview/tags
+
 # Usage
 In this exemple we'll use Preview 7 (see https://soroban.stellar.org/docs/reference/releases)
 In order to run an script using the preview:7 setup, you need to also run the stellar/quickstart container in the same docker network
