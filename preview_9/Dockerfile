@@ -29,3 +29,4 @@ RUN apt update && apt install -y git
 # WORKDIR /
 RUN mkdir /workspace
 WORKDIR /workspace
+ENV IS_USING_DOCKER=true
