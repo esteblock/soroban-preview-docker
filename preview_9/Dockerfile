@@ -30,3 +30,5 @@ RUN apt update && apt install -y git
 RUN mkdir /workspace
 WORKDIR /workspace
 ENV IS_USING_DOCKER=true
+
+RUN corepack enable
