@@ -2,7 +2,6 @@
 
 # Build image and tag it with image name and version
 docker build . \
-    --tag esteblock/soroban-preview:20.0.0-rc4 \
-    --no-cache \
+    --tag esteblock/soroban-preview:9_CLI_0.8.7 \
     --force-rm \
     --rm
