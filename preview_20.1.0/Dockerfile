@@ -34,6 +34,10 @@ RUN mkdir /workspace
 WORKDIR /workspace
 ENV IS_USING_DOCKER=true
 
+#Forcing to only use the rust version installed when building the image
+RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
+    rustup override set $rustc_version
+
 RUN corepack enable
 RUN touch .update
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
