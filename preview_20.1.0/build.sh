@@ -4,4 +4,5 @@
 docker build . \
     --tag esteblock/soroban-preview:20.1.0 \
     --force-rm \
-    --rm
+    --rm \
+    --no-cache 

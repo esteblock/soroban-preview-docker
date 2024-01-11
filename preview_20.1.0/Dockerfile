@@ -22,9 +22,9 @@ RUN apt install -y build-essential
 RUN apt install -y jq
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && . ~/.bashrc \
-    && nvm install 17.9.1 && nvm use 17.9.1
+    && nvm install 18.18.2 && nvm use 18.18.2
 
-ENV NODE_VERSION=17.9.1
+ENV NODE_VERSION=18.18.2
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 RUN apt update && apt install -y git
