@@ -42,3 +42,4 @@ RUN corepack enable
 RUN touch .update
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
 RUN cargo install --locked --version 20.2.0 soroban-cli --features opt
+RUN rustup target add wasm32-unknown-unknown
