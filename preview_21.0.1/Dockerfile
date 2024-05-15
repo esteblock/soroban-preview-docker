@@ -41,5 +41,5 @@ RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
 RUN corepack enable
 RUN touch .update
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
-RUN cargo install --locked --version 21.0.1 soroban-cli --features opt
+RUN cargo install --locked --version 21.0.0-preview.1 soroban-cli --features opt
 RUN rustup target add wasm32-unknown-unknown
