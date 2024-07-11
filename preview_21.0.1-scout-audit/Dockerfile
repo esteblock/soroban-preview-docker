@@ -45,7 +45,7 @@ RUN cargo install --locked --version 21.0.0-preview.1 soroban-cli --features opt
 RUN rustup target add wasm32-unknown-unknown
 
 # Install scout-audit
-# Set environment variables
+# Set environment variables required to install pkg-config in an non interactive way
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt install -y pkg-config
 RUN apt install -y libssl-dev
@@ -53,3 +53,4 @@ RUN rustup toolchain install nightly-2023-12-16
 RUN rustup default nightly-2023-12-16
 RUN rustup component add rust-src --toolchain nightly-2023-12-16
 RUN cargo install cargo-dylint dylint-link
+RUN cargo install cargo-scout-audit
