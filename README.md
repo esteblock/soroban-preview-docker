@@ -10,7 +10,7 @@ Usually you would like not only to compile and test contracts, but also to deplo
 
 Note: Check your stellar/quickstart hash
 
-1. C reate a common docker network
+1. Create a common docker network
 ```
 docker network create soroban-network
 ```
