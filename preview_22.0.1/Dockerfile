@@ -8,7 +8,7 @@ RUN echo -e "[Service]\nExecStart=\nExecStart=/usr/bin/dockerd --storage-driver=
 
 
 RUN apt update
-RUN apt install -y nano
+RUN apt install -y nano 
 RUN apt install -y curl
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rust_install.sh
@@ -37,6 +37,11 @@ ENV IS_USING_DOCKER=true
 #Forcing to only use the rust version installed when building the image
 RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
     rustup override set $rustc_version
+
+# MERCURY CLI
+ENV PATH="/root/.cargo/bin:$PATH"
+RUN apt install -y pkg-config libssl-dev
+RUN cargo install mercury-cli@0.2.1
 
 RUN corepack enable
 RUN touch .update
