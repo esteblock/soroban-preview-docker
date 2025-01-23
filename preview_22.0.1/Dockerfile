@@ -37,15 +37,29 @@ ENV IS_USING_DOCKER=true
 #Forcing to only use the rust version installed when building the image
 RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
     rustup override set $rustc_version
+    
+RUN corepack enable
+RUN touch .update
 
 # MERCURY CLI
 ENV PATH="/root/.cargo/bin:$PATH"
 RUN apt install -y pkg-config libssl-dev
 RUN cargo install mercury-cli@0.2.1
 
-RUN corepack enable
-RUN touch .update
+# Install scout-audit at specific version (LAST LINE)
+# Set environment variables required to install pkg-config in an non interactive way
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt install -y pkg-config
+RUN apt install -y libssl-dev
+RUN rustup toolchain install nightly-2023-12-16
+RUN rustup default nightly-2023-12-16
+RUN rustup component add rust-src --toolchain nightly-2023-12-16
+RUN cargo install cargo-dylint dylint-link
+# https://lib.rs/crates/cargo-scout-audit
+RUN cargo install cargo-scout-audit@0.3.2
+
+
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked stellar-cli --version 22.0.1 --features opt  
-RUN echo "source <(stellar completion --shell bash)" >> ~/.bashrc
+RUN echo "source <(stellar completion --shell bash)" >> ~/.bashrc 
