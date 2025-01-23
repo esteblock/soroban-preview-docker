@@ -22,9 +22,9 @@ RUN apt install -y build-essential
 RUN apt install -y jq
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
     && . ~/.bashrc \
-    && nvm install 20.18.0 && nvm use 20.18.0
+    && nvm install 18.18.2 && nvm use 18.18.2
 
-ENV NODE_VERSION=20.18.0
+ENV NODE_VERSION=18.18.2
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 RUN apt update && apt install -y git
@@ -41,7 +41,7 @@ RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
 RUN corepack enable
 RUN touch .update
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
-RUN cargo install --locked --version 21.0.0 stellar-cli --features opt
+RUN cargo install --locked --version 21.0.0-preview.1 soroban-cli --features opt
 RUN rustup target add wasm32-unknown-unknown
 
 # Install scout-audit
@@ -51,6 +51,6 @@ RUN apt install -y pkg-config
 RUN apt install -y libssl-dev
 RUN rustup toolchain install nightly-2023-12-16
 RUN rustup default nightly-2023-12-16
-RUN rustup component add rust-src --toolchain nightly-2023-12-16
-RUN cargo install cargo-dylint dylint-link
+# RUN rustup component add rust-src --toolchain nightly-2023-12-16
+# RUN cargo install cargo-dylint dylint-link
 RUN cargo install cargo-scout-audit

@@ -41,7 +41,7 @@ RUN rustc_version=$(rustc --version | cut -d' ' -f2) && \
 RUN corepack enable
 RUN touch .update
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
-RUN cargo install --locked --version 21.0.0 stellar-cli --features opt
+RUN cargo install --locked --version 21.0.0 stellar-cli
 RUN rustup target add wasm32-unknown-unknown
 
 # Install scout-audit
