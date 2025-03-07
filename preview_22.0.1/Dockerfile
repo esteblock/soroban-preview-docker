@@ -56,7 +56,7 @@ RUN rustup default nightly-2023-12-16
 RUN rustup component add rust-src --toolchain nightly-2023-12-16
 RUN cargo install cargo-dylint dylint-link
 # https://lib.rs/crates/cargo-scout-audit
-RUN cargo install cargo-scout-audit@0.3.2
+RUN cargo install cargo-scout-audit@0.3.5
 
 
 ## THIS NEXT LINE SHOULD BE THE ONLY ONE TO CHANGE BETWEEN SOROBAN PREVIEWS
